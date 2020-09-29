@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 4</title>
+    </head>
+    <body style="width: 100vw; height: 100vh; display: flex ; justify-content: center; ">
+        <main style="
+                    display: flex; 
+                    justify-content: center;
+                    padding: 1% 5%; 
+                    width: 90%;" >
+
+            <div id="questao" style="max-width: 600px;">
+                <h1>Questão 4</h1>
+                <p>4. Solicite ao usuário o nome e idade de quatro pessoas, armazenando esses dados num array de objetos. Após isso, utilize a função filter() para gerar um novo array contendo apenas as pessoas idosas (idade maior ou igual a sessenta anos)</p>
+                <div style="
+                    max-width: 200px;
+                    /* display: flex; */
+                    height: auto; 
+                    flex-direction: column; 
+                    justify-content: space-around ;
+                    
+                ">
+                    <div style=" display: flex; ">
+                        <input type="text" id="nome1" placeholder="Nome 1" />
+                        <input type="number" id="idade1" placeholder="Idade 1" />
+                    </div>
+                    <div style="display: flex;">
+                        <input type="text" id="nome2" placeholder="Nome 2" />
+                        <input type="number" id="idade2" placeholder="Idade 2" />
+                    </div>
+                    <div style="display: flex;">
+                        <input type="text" id="nome3" placeholder="Nome 3" />
+                        <input type="number" id="idade3" placeholder="Idade 3" />
+                    </div>
+                    <div style="display: flex;">
+                        <input type="text" id="nome4" placeholder="Nome 4" />
+                        <input type="number" id="idade4" placeholder="Idade 4" />
+                    </div>
+                    <button onclick="questao()">Enviar</button>
+                </div>
+                <p  id="resposta" style="background-color: rgb(164, 250, 164);" ></p>
+            </div>
+        </main>
+        <script>
+            function questao(){ 
+                var nome1 = document.querySelector('div#questao input#nome1').value ;
+                var idade1 = parseInt(document.querySelector('div#questao input#idade1').value);
+                var nome2 = document.querySelector('div#questao input#nome2').value ;
+                var idade2 = parseInt(document.querySelector('div#questao input#idade2').value);
+                var nome3 = document.querySelector('div#questao input#nome3').value ;
+                var idade3 = parseInt(document.querySelector('div#questao input#idade3').value);
+                var nome4 = document.querySelector('div#questao input#nome4').value ;
+                var idade4 = parseInt(document.querySelector('div#questao input#idade4').value);
+                
+                var pessoas = [
+                    {nome: nome1, idade: idade1},
+                    {nome: nome2, idade: idade2},
+                    {nome: nome3, idade: idade3},
+                    {nome: nome4, idade: idade4}
+                ]; 
+                
+                function calcIdosas(dados){
+                    return dados.idade >=60;
+                }
+               
+                var idosas = pessoas.filter(calcIdosas);
+                
+                var texto = "";
+                for (var i=0; i<idosas.length; i++){
+                    texto += " " + idosas[i].nome;
+                }
+
+                var resposta = document.querySelector('div#questao p#resposta');
+                resposta.innerText = texto;
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
