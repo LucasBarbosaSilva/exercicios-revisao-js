@@ -45,7 +45,7 @@
                     </div>
                     <button onclick="questao()">Enviar</button>
                 </div>
-                <div  id="resposta" style="margin-top: 30px;"></div>
+                <ul  id="resposta" style="margin-top: 30px;"></ul>
             </div>
         </main>
         <script>
@@ -66,7 +66,7 @@
                     {estado: estado4, abrevi: abrevi4}
                 ]; 
                 
-                var resposta = document.querySelector('div#questao div#resposta');
+                var resposta = document.querySelector('div#questao ul#resposta');
 
                 var tabela = estados.map(elem => {
                     var li
